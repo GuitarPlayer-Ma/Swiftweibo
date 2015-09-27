@@ -14,6 +14,35 @@ class MainTabbarController: UITabBarController {
         
         addChildViewControllers()
     }
+    // MARK: - 懒加载
+    lazy private var publishButton: UIButton = {
+        // 创建按钮
+        let btn = UIButton()
+        // 设置图片
+        btn.setImage(UIImage(named: "tabbar_compose_icon_add"), forState: UIControlState.Normal)
+        btn.setImage(UIImage(named: "tabbar_compose_icon_add_hightlight"), forState: UIControlState.Highlighted)
+        // 设置背景
+        btn.setBackgroundImage(UIImage(named: "tabbar_compose_button"), forState: UIControlState.Normal)
+        btn.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), forState: UIControlState.Highlighted)
+        // 添加监听
+        btn.addTarget(self, action: Selector("publishButtonClick"), forControlEvents: UIControlEvents.TouchUpInside)
+        return btn
+    }()
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        // 添加中间的加号按钮
+        tabBar.addSubview(publishButton)
+        // 设置按钮的位置
+        let buttonW = UIScreen.mainScreen().bounds.width / CGFloat(childViewControllers.count)
+        let rect = CGRect(origin: CGPointZero, size: CGSize(width: buttonW, height: 49))
+        publishButton.frame = CGRectOffset(rect, 2*buttonW, 0)
+    }
+    
+    // MARK: - 内部方法
+    func publishButtonClick() {
+        JSJLog(__FUNCTION__)
+    }
     
     private func addChildViewControllers() {
         tabBar.tintColor = UIColor.orangeColor()
@@ -23,16 +52,30 @@ class MainTabbarController: UITabBarController {
 //        let nav1 = UINavigationController(rootViewController: homeVc)
 //        addChildViewController(nav1)
         
-        /* 添加子控制器*/
-        addChildViewController("HomeTableViewController", imageName: "tabbar_home", title: "首页")
-        addChildViewController("DiscoverTableViewController", imageName: "tabbar_discover", title: "发现")
-        addChildViewController("MessageTableViewController", imageName: "tabbar_message_center", title: "消息")
-        addChildViewController("ProfileTableViewController", imageName: "tabbar_profile", title: "我")
-        
+        do {
+            // json数据路径
+            let path = NSBundle.mainBundle().pathForResource("MainVCSettings.json", ofType: nil)!
+            // 根据路径创建NSData
+            let data = NSData(contentsOfFile: path)!
+            // 解析成数组
+            let dictArray = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers)
+            // 遍历数组创建子控制器
+            for dict in dictArray as! [[String : AnyObject]] {
+                addChildViewController(dict["vcName"] as! String, imageName: dict["imageName"] as! String, title: dict["title"] as! String)
+            }
+        }catch {
+            // 如果json数据没有就正常创建
+            addChildViewController("HomeTableViewController", imageName: "tabbar_home", title: "首页")
+            addChildViewController("MessageTableViewController", imageName: "tabbar_message_center", title: "消息")
+            // 用来占位的子控制器
+            addChildViewController("NullViewController", imageName: "", title: "")
+            addChildViewController("DiscoverTableViewController", imageName: "tabbar_discover", title: "广场")
+            addChildViewController("ProfileTableViewController", imageName: "tabbar_profile", title: "我")
+        }
     }
     
     private func addChildViewController(viewControllerName: String, imageName: String, title: String) {
-        print(NSBundle.mainBundle().infoDictionary!["CFBundleExecutable"])
+        JSJLog(NSBundle.mainBundle().infoDictionary!["CFBundleExecutable"])
         
         /* 根据控制器的名称实例化子控制器*/
         // 命名空间
@@ -46,8 +89,10 @@ class MainTabbarController: UITabBarController {
         
         /* 设置子控制器*/
         vc.title = title
-        vc.tabBarItem.image = UIImage(named: imageName)
-        vc.tabBarItem.selectedImage = UIImage(named: imageName + "_highlight")
+        if imageName != "" {
+            vc.tabBarItem.image = UIImage(named: imageName)
+            vc.tabBarItem.selectedImage = UIImage(named: imageName + "_highlight")
+        }
         // 包装导航控制器
         let naVc = UINavigationController(rootViewController: vc)
         addChildViewController(naVc)
