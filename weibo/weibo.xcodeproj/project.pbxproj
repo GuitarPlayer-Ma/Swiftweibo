@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		009987A71BB82A0B009DE336 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009987A61BB82A0B009DE336 /* TitleButton.swift */; settings = {ASSET_TAGS = (); }; };
+		002320311BB95A5D00C7AFDF /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002320301BB95A5D00C7AFDF /* PopoverViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		002320331BB95B8900C7AFDF /* PopoverPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002320321BB95B8900C7AFDF /* PopoverPresentationController.swift */; settings = {ASSET_TAGS = (); }; };
+		002320351BB9789D00C7AFDF /* PopoverAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002320341BB9789D00C7AFDF /* PopoverAnimationController.swift */; settings = {ASSET_TAGS = (); }; };
 		009987A91BB82DCC009DE336 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009987A81BB82DCC009DE336 /* UIBarButtonItem+Extension.swift */; settings = {ASSET_TAGS = (); }; };
+		00C76E801BB9514F00B33CE4 /* PopoverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00C76E7F1BB9514F00B33CE4 /* PopoverViewController.storyboard */; settings = {ASSET_TAGS = (); }; };
+		00C76E821BB9518A00B33CE4 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C76E811BB9518A00B33CE4 /* TitleButton.swift */; settings = {ASSET_TAGS = (); }; };
 		00ECF25C1BB77F03002F976E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ECF25B1BB77F03002F976E /* AppDelegate.swift */; };
 		00ECF2711BB77F03002F976E /* weiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ECF2701BB77F03002F976E /* weiboTests.swift */; };
 		00ECF27C1BB77F03002F976E /* weiboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ECF27B1BB77F03002F976E /* weiboUITests.swift */; };
@@ -43,8 +47,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		009987A61BB82A0B009DE336 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleButton.swift; path = ../Home/View/TitleButton.swift; sourceTree = "<group>"; };
+		002320301BB95A5D00C7AFDF /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		002320321BB95B8900C7AFDF /* PopoverPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationController.swift; sourceTree = "<group>"; };
+		002320341BB9789D00C7AFDF /* PopoverAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimationController.swift; sourceTree = "<group>"; };
 		009987A81BB82DCC009DE336 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		00C76E7F1BB9514F00B33CE4 /* PopoverViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PopoverViewController.storyboard; sourceTree = "<group>"; };
+		00C76E811BB9518A00B33CE4 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		00ECF2581BB77F03002F976E /* weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00ECF25B1BB77F03002F976E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00ECF2671BB77F03002F976E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -219,6 +227,10 @@
 		00ECF2931BB781F2002F976E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				00C76E7F1BB9514F00B33CE4 /* PopoverViewController.storyboard */,
+				002320301BB95A5D00C7AFDF /* PopoverViewController.swift */,
+				002320321BB95B8900C7AFDF /* PopoverPresentationController.swift */,
+				002320341BB9789D00C7AFDF /* PopoverAnimationController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -326,7 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				009987A81BB82DCC009DE336 /* UIBarButtonItem+Extension.swift */,
-				009987A61BB82A0B009DE336 /* TitleButton.swift */,
+				00C76E811BB9518A00B33CE4 /* TitleButton.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -463,6 +475,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00C76E801BB9514F00B33CE4 /* PopoverViewController.storyboard in Resources */,
 				00ECF2B21BB79DB9002F976E /* MainVCSettings.json in Resources */,
 				00ECF28A1BB780EF002F976E /* Assets.xcassets in Resources */,
 			);
@@ -537,16 +550,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				002320331BB95B8900C7AFDF /* PopoverPresentationController.swift in Sources */,
 				00ECF2A91BB78967002F976E /* ProfileTableViewController.swift in Sources */,
 				00ECF2A51BB78943002F976E /* HomeTableViewController.swift in Sources */,
 				00ECF2A11BB782B3002F976E /* MainTabbarController.swift in Sources */,
 				00ECF2AC1BB79960002F976E /* BaseTableViewController.swift in Sources */,
+				002320311BB95A5D00C7AFDF /* PopoverViewController.swift in Sources */,
+				00C76E821BB9518A00B33CE4 /* TitleButton.swift in Sources */,
 				00ECF2B31BB79DB9002F976E /* NullViewController.swift in Sources */,
 				009987A91BB82DCC009DE336 /* UIBarButtonItem+Extension.swift in Sources */,
 				00ECF2A71BB78954002F976E /* MessageTableViewController.swift in Sources */,
+				002320351BB9789D00C7AFDF /* PopoverAnimationController.swift in Sources */,
 				00ECF2A31BB788D6002F976E /* DiscoverTableViewController.swift in Sources */,
 				00ECF25C1BB77F03002F976E /* AppDelegate.swift in Sources */,
-				009987A71BB82A0B009DE336 /* TitleButton.swift in Sources */,
 				00ECF2AE1BB79B8E002F976E /* VisitorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,11 +14,6 @@ class BaseTableViewController: UITableViewController, VisitorViewDelegate {
     // 定义属性保存访客视图(可以供子控制器修改)
     var visitorView: VisitorView?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-
     override func loadView() {
         isLogin ? super.loadView() : setupVisitorView()
         
