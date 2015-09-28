@@ -10,9 +10,12 @@ import UIKit
 
 class PopoverPresentationController: UIPresentationController {
     
+    // 展示的尺寸和位置
+    var presentFrame: CGRect = CGRectZero
+    
     override func containerViewWillLayoutSubviews() {
         // 修改被弹出来的view的大小和位置
-        presentedView()?.frame = CGRect(x: 100, y: 56, width: 200, height: 300)
+        presentedView()?.frame = presentFrame
         // 添加子控制器
         containerView?.insertSubview(maskView, atIndex: 0)
     }
