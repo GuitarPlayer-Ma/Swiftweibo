@@ -56,17 +56,21 @@ class HomeTableViewController: BaseTableViewController {
         presentViewController(vc, animated: true, completion: nil)
     }
     
+    func changeTitleButton() {
+        titleButton.selected = !titleButton.selected
+    }
+    
     func leftButtonClick() {
         JSJLog(__FUNCTION__)
     }
 
     func rightButtonClick() {
         JSJLog(__FUNCTION__)
+        let storyboard = UIStoryboard.init(name: "QRCodeViewController", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController()!
+        presentViewController(vc, animated: true, completion: nil)
     }
     
-    func changeTitleButton() {
-        titleButton.selected = !titleButton.selected
-    }
     
     // MARK: - 懒加载
     private lazy var popoverAnimator: PopoverAnimationController = {
