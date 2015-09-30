@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		002B2AD61BBB73EC00794939 /* CreateQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002B2AD51BBB73EC00794939 /* CreateQRCodeViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		002B2ADC1BBB892A00794939 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002B2ADB1BBB892A00794939 /* OAuthViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		0091FCF21BB98680005D3F7D /* PopoverAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091FCED1BB98680005D3F7D /* PopoverAnimationController.swift */; settings = {ASSET_TAGS = (); }; };
 		0091FCF31BB98680005D3F7D /* PopoverPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091FCEE1BB98680005D3F7D /* PopoverPresentationController.swift */; settings = {ASSET_TAGS = (); }; };
 		0091FCF41BB98680005D3F7D /* PopoverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0091FCEF1BB98680005D3F7D /* PopoverViewController.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		002B2AD51BBB73EC00794939 /* CreateQRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateQRCodeViewController.swift; sourceTree = "<group>"; };
+		002B2ADB1BBB892A00794939 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		0091FCED1BB98680005D3F7D /* PopoverAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimationController.swift; sourceTree = "<group>"; };
 		0091FCEE1BB98680005D3F7D /* PopoverPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationController.swift; sourceTree = "<group>"; };
 		0091FCEF1BB98680005D3F7D /* PopoverViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PopoverViewController.storyboard; sourceTree = "<group>"; };
@@ -109,6 +111,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		002B2AD71BBB891200794939 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				002B2AD81BBB891200794939 /* Controller */,
+				002B2AD91BBB891200794939 /* Model */,
+				002B2ADA1BBB891200794939 /* View */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		002B2AD81BBB891200794939 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				002B2ADB1BBB892A00794939 /* OAuthViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		002B2AD91BBB891200794939 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		002B2ADA1BBB891200794939 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		0091FCEC1BB98680005D3F7D /* PopoverView */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				00ECF2AA1BB789B7002F976E /* Tools */,
+				002B2AD71BBB891200794939 /* OAuth */,
 				00ECF28C1BB781F2002F976E /* Discover */,
 				00ECF2901BB781F2002F976E /* Home */,
 				00ECF2941BB781F2002F976E /* Main */,
@@ -579,6 +614,7 @@
 				0091FCF31BB98680005D3F7D /* PopoverPresentationController.swift in Sources */,
 				00ECF2A91BB78967002F976E /* ProfileTableViewController.swift in Sources */,
 				0091FCF51BB98680005D3F7D /* PopoverViewController.swift in Sources */,
+				002B2ADC1BBB892A00794939 /* OAuthViewController.swift in Sources */,
 				00ECF2A51BB78943002F976E /* HomeTableViewController.swift in Sources */,
 				00ECF2A11BB782B3002F976E /* MainTabbarController.swift in Sources */,
 				00ECF2AC1BB79960002F976E /* BaseTableViewController.swift in Sources */,

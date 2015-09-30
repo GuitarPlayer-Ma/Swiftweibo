@@ -10,7 +10,7 @@ import UIKit
 
 class BaseTableViewController: UITableViewController, VisitorViewDelegate {
     // 标记当前的登录状态
-    var isLogin: Bool = true
+    var isLogin: Bool = false
     // 定义属性保存访客视图(可以供子控制器修改)
     var visitorView: VisitorView?
     
@@ -37,5 +37,8 @@ class BaseTableViewController: UITableViewController, VisitorViewDelegate {
     
     func visitorViewDidLoginButtomClick(visitorView: VisitorView) {
         JSJLog(__FUNCTION__)
+        let vc = OAuthViewController()
+        let naVc = UINavigationController(rootViewController: vc)
+        presentViewController(naVc, animated: true, completion: nil)
     }
 }

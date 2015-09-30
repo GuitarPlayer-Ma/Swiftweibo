@@ -97,6 +97,14 @@ class QRCodeViewController: UIViewController, UITabBarDelegate {
 
     private lazy var output: AVCaptureMetadataOutput = {
         let output = AVCaptureMetadataOutput()
+        // 设置兴趣点(即扫描范围,默认是全屏扫描)
+        // 注意:坐标是以横屏时的左上角为原点
+        let frame = self.containerView.frame
+        let size = self.view.frame.size
+        // 默认(0,0,1,1)
+        // 由于是按照横屏来计算的, 所以需要将x变为y, y变为x, 将宽变为高, 高变为宽
+        output.rectOfInterest = CGRect(x: frame.origin.y / size.height, y: frame.origin.x / size.width, width: frame.size.height / size.height, height: frame.size.width / size.width)
+        
         return output
     }()
 
