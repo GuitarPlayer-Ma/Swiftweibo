@@ -33,6 +33,7 @@ class QRCodeViewController: UIViewController, UITabBarDelegate {
         setupQRScan()
     }
     
+    // MARK: - 开启二维码扫描
     private func setupQRScan() {
         // 1.判断是否可以输入设备
         if !session.canAddInput(inputDevice) {
@@ -55,6 +56,7 @@ class QRCodeViewController: UIViewController, UITabBarDelegate {
         session.startRunning()
     }
     
+    // MARK: - 二维码扫描动画
     private func startAnimation() {
         scanlineTopCons.constant = -containerHeightCons.constant
         view.layoutIfNeeded()
@@ -67,10 +69,12 @@ class QRCodeViewController: UIViewController, UITabBarDelegate {
         }
     }
     
+    // MARK: - 二维码扫描界面相关点击事件的监听
     @IBAction func closeQRView(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+    // tabBar的代理方法
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
         containerHeightCons.constant = (item.tag == 1) ? 125 : 200
         

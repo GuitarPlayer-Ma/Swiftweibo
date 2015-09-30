@@ -38,7 +38,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="ABB-j8-iNh"/>
                                     <constraint firstAttribute="bottom" secondItem="oiN-WW-sbt" secondAttribute="bottom" id="VWM-gK-T0E"/>
@@ -51,15 +51,28 @@
                                     <constraint firstItem="oiN-WW-sbt" firstAttribute="top" secondItem="ibT-WX-l8P" secondAttribute="top" id="yaE-k4-fOI"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPW-G1-A5u">
+                                <rect key="frame" x="270" y="451" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="B3U-wY-2EI"/>
+                                    <constraint firstAttribute="width" constant="60" id="XwV-vF-CtM"/>
+                                </constraints>
+                                <state key="normal" title="我的名片"/>
+                                <connections>
+                                    <segue destination="NMh-LM-GKi" kind="push" id="dWA-5R-Vxm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ibT-WX-l8P" firstAttribute="centerY" secondItem="cOX-iH-5zc" secondAttribute="centerY" constant="-40" id="1WM-wf-qwv"/>
                             <constraint firstItem="ibT-WX-l8P" firstAttribute="centerX" secondItem="cOX-iH-5zc" secondAttribute="centerX" id="Chp-cF-oev"/>
+                            <constraint firstItem="FPW-G1-A5u" firstAttribute="centerX" secondItem="cOX-iH-5zc" secondAttribute="centerX" id="DOk-04-36v"/>
                             <constraint firstItem="D50-do-QBx" firstAttribute="centerX" secondItem="cOX-iH-5zc" secondAttribute="centerX" id="Vdt-0h-VOP"/>
                             <constraint firstItem="8yu-Xz-kmy" firstAttribute="top" secondItem="huD-Dj-1fe" secondAttribute="bottom" id="XaK-ME-xuu"/>
                             <constraint firstAttribute="trailing" secondItem="huD-Dj-1fe" secondAttribute="trailing" id="ZBz-DG-a63"/>
                             <constraint firstItem="huD-Dj-1fe" firstAttribute="leading" secondItem="cOX-iH-5zc" secondAttribute="leading" id="l97-RN-x2s"/>
+                            <constraint firstItem="huD-Dj-1fe" firstAttribute="top" secondItem="FPW-G1-A5u" secondAttribute="bottom" constant="70" id="lsx-KM-MWc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="二维码" id="UTq-Tx-XIE">
@@ -81,6 +94,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GDB-G1-lo8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1150" y="304"/>
+        </scene>
+        <!--CreateQR Code View Controller-->
+        <scene sceneID="e2e-rD-e2O">
+            <objects>
+                <viewController id="NMh-LM-GKi" customClass="CreateQRCodeViewController" customModule="weibo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3dJ-MU-ULU"/>
+                        <viewControllerLayoutGuide type="bottom" id="FCq-u6-2ob"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EYe-kO-ehG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ktj-yg-Jg0">
+                                <rect key="frame" x="175" y="175" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="Zkc-eX-e72"/>
+                                    <constraint firstAttribute="height" constant="250" id="uw2-3p-YxK"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ktj-yg-Jg0" firstAttribute="centerY" secondItem="EYe-kO-ehG" secondAttribute="centerY" id="hKm-Vh-3Za"/>
+                            <constraint firstItem="ktj-yg-Jg0" firstAttribute="centerX" secondItem="EYe-kO-ehG" secondAttribute="centerX" id="xDF-cl-8Ks"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="kr2-tY-9w9"/>
+                    <connections>
+                        <outlet property="customImageView" destination="ktj-yg-Jg0" id="vDR-ZL-2Lu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SiZ-Ct-Sib" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="304"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="giO-b9-l5n">
