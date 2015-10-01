@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		002B2AD61BBB73EC00794939 /* CreateQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002B2AD51BBB73EC00794939 /* CreateQRCodeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		002B2ADC1BBB892A00794939 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002B2ADB1BBB892A00794939 /* OAuthViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		007A3EE71BBD261600EECA2E /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007A3EE61BBD261600EECA2E /* UserAccount.swift */; settings = {ASSET_TAGS = (); }; };
+		007A3EE91BBD2AC600EECA2E /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007A3EE81BBD2AC600EECA2E /* String+extension.swift */; settings = {ASSET_TAGS = (); }; };
 		0091FCF21BB98680005D3F7D /* PopoverAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091FCED1BB98680005D3F7D /* PopoverAnimationController.swift */; settings = {ASSET_TAGS = (); }; };
 		0091FCF31BB98680005D3F7D /* PopoverPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091FCEE1BB98680005D3F7D /* PopoverPresentationController.swift */; settings = {ASSET_TAGS = (); }; };
 		0091FCF41BB98680005D3F7D /* PopoverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0091FCEF1BB98680005D3F7D /* PopoverViewController.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -30,6 +32,7 @@
 		00ECF2AE1BB79B8E002F976E /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ECF2AD1BB79B8E002F976E /* VisitorView.swift */; settings = {ASSET_TAGS = (); }; };
 		00ECF2B21BB79DB9002F976E /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 00ECF2B01BB79DB9002F976E /* MainVCSettings.json */; settings = {ASSET_TAGS = (); }; };
 		00ECF2B31BB79DB9002F976E /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ECF2B11BB79DB9002F976E /* NullViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		00F56A341BBC075E00E3EB6C /* NetworkingTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F56A331BBC075E00E3EB6C /* NetworkingTools.swift */; settings = {ASSET_TAGS = (); }; };
 		111CDCAA59F4F3FAE2AC47B0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE52AA26C09D046635990C03 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -53,6 +56,8 @@
 /* Begin PBXFileReference section */
 		002B2AD51BBB73EC00794939 /* CreateQRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateQRCodeViewController.swift; sourceTree = "<group>"; };
 		002B2ADB1BBB892A00794939 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
+		007A3EE61BBD261600EECA2E /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		007A3EE81BBD2AC600EECA2E /* String+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		0091FCED1BB98680005D3F7D /* PopoverAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimationController.swift; sourceTree = "<group>"; };
 		0091FCEE1BB98680005D3F7D /* PopoverPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationController.swift; sourceTree = "<group>"; };
 		0091FCEF1BB98680005D3F7D /* PopoverViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PopoverViewController.storyboard; sourceTree = "<group>"; };
@@ -80,6 +85,7 @@
 		00ECF2AD1BB79B8E002F976E /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		00ECF2B01BB79DB9002F976E /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		00ECF2B11BB79DB9002F976E /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
+		00F56A331BBC075E00E3EB6C /* NetworkingTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingTools.swift; sourceTree = "<group>"; };
 		42A630021EEFD53B46706C92 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EE52AA26C09D046635990C03 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2A133D9F40C3A7207367A3F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +138,7 @@
 		002B2AD91BBB891200794939 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				007A3EE61BBD261600EECA2E /* UserAccount.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -399,6 +406,8 @@
 			children = (
 				009987A81BB82DCC009DE336 /* UIBarButtonItem+Extension.swift */,
 				00C76E811BB9518A00B33CE4 /* TitleButton.swift */,
+				00F56A331BBC075E00E3EB6C /* NetworkingTools.swift */,
+				007A3EE81BBD2AC600EECA2E /* String+extension.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -616,6 +625,7 @@
 				0091FCF51BB98680005D3F7D /* PopoverViewController.swift in Sources */,
 				002B2ADC1BBB892A00794939 /* OAuthViewController.swift in Sources */,
 				00ECF2A51BB78943002F976E /* HomeTableViewController.swift in Sources */,
+				007A3EE71BBD261600EECA2E /* UserAccount.swift in Sources */,
 				00ECF2A11BB782B3002F976E /* MainTabbarController.swift in Sources */,
 				00ECF2AC1BB79960002F976E /* BaseTableViewController.swift in Sources */,
 				00C76E821BB9518A00B33CE4 /* TitleButton.swift in Sources */,
@@ -626,8 +636,10 @@
 				00ECF2A71BB78954002F976E /* MessageTableViewController.swift in Sources */,
 				0091FCF21BB98680005D3F7D /* PopoverAnimationController.swift in Sources */,
 				00ECF2A31BB788D6002F976E /* DiscoverTableViewController.swift in Sources */,
+				007A3EE91BBD2AC600EECA2E /* String+extension.swift in Sources */,
 				00ECF25C1BB77F03002F976E /* AppDelegate.swift in Sources */,
 				00ECF2AE1BB79B8E002F976E /* VisitorView.swift in Sources */,
+				00F56A341BBC075E00E3EB6C /* NetworkingTools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

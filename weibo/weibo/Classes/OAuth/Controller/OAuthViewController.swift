@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SVProgressHUD
+
 
 
 class OAuthViewController: UIViewController {
@@ -42,6 +44,15 @@ class OAuthViewController: UIViewController {
 
 
 extension OAuthViewController : UIWebViewDelegate {
+    // 开始加载时调用
+    func webViewDidStartLoad(webView: UIWebView) {
+        SVProgressHUD.showWithStatus("加载中..", maskType: SVProgressHUDMaskType.Black)
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        SVProgressHUD.dismiss()
+    }
+    
     // 每次webView发送请求就会调用,如果返回true代表可以访问, 返回false代表不能访问
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         // 判断是否跳转到微博对应的页面
@@ -56,10 +67,37 @@ extension OAuthViewController : UIWebViewDelegate {
             JSJLog(request.URL!)
             let code = request.URL?.query?.substringFromIndex(codeStr.endIndex)
             JSJLog(code)
+            loadAccessToken(code!)
+            close()
         }else {
             JSJLog("取消授权")
             close()
         }
         return false
+    }
+    
+    func loadAccessToken(code: String) {
+        let path = "oauth2/access_token"
+        let parameters = ["client_id" : WB_APP_Key, "client_secret" : WB_App_Secret, "grant_type" : "authorization_code", "code" : code, "redirect_uri" : WB_Redirect_URI]
+        NetworkingTools.shareNetworkTools().POST(path, parameters: parameters, success: { (_, dict) -> Void in
+            JSJLog(dict)
+            // 将字典转换为模型
+            let account = UserAccount(dict: dict as! [String : AnyObject])
+            
+            // 加载用户信息
+            account.loadUserInfo { (account, error) -> () in
+                if account != nil {
+                    // 保存用户信息
+                    JSJLog(account)
+                    account?.saveAccount()
+                    return
+                }
+                SVProgressHUD.showErrorWithStatus("获取授权信息失败")
+            }
+            
+            }) { (_, error) -> Void in
+                JSJLog(error)
+                SVProgressHUD.showErrorWithStatus("获取授权信息失败", maskType: SVProgressHUDMaskType.Black)
+        }
     }
 }
