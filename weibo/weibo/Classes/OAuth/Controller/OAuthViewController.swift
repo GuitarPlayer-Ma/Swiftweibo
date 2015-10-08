@@ -90,6 +90,8 @@ extension OAuthViewController : UIWebViewDelegate {
                     // 保存用户信息
                     JSJLog(account)
                     account?.saveAccount()
+                    // 发送通知
+                    NSNotificationCenter.defaultCenter().postNotificationName(JSJSwitchRootViewController, object: "oauth")
                     return
                 }
                 SVProgressHUD.showErrorWithStatus("获取授权信息失败")

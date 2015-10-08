@@ -130,7 +130,8 @@ class NewfeatureCell: UICollectionViewCell {
     }()
     
     func startButtonClick() {
-        JSJLog("...")
+        // 发送通知
+        NSNotificationCenter.defaultCenter().postNotificationName(JSJSwitchRootViewController, object: nil)
     }
     
     private lazy var iconImageView: UIImageView = UIImageView()

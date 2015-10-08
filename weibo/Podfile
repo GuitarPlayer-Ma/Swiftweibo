@@ -3,3 +3,4 @@ platform :ios, ‘8.0’
 pod "SnapKit"
 pod "AFNetworking"
 pod "SVProgressHUD"
+pod "SDWebImage"

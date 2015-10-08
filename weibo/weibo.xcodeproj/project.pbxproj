@@ -12,6 +12,7 @@
 		007A3EE71BBD261600EECA2E /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007A3EE61BBD261600EECA2E /* UserAccount.swift */; settings = {ASSET_TAGS = (); }; };
 		007A3EE91BBD2AC600EECA2E /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007A3EE81BBD2AC600EECA2E /* String+extension.swift */; settings = {ASSET_TAGS = (); }; };
 		007A3EEF1BBD803D00EECA2E /* NewfeatureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007A3EEE1BBD803D00EECA2E /* NewfeatureController.swift */; settings = {ASSET_TAGS = (); }; };
+		008348621BC68479001B74D0 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008348611BC68479001B74D0 /* WelcomeController.swift */; settings = {ASSET_TAGS = (); }; };
 		0091FCF21BB98680005D3F7D /* PopoverAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091FCED1BB98680005D3F7D /* PopoverAnimationController.swift */; settings = {ASSET_TAGS = (); }; };
 		0091FCF31BB98680005D3F7D /* PopoverPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091FCEE1BB98680005D3F7D /* PopoverPresentationController.swift */; settings = {ASSET_TAGS = (); }; };
 		0091FCF41BB98680005D3F7D /* PopoverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0091FCEF1BB98680005D3F7D /* PopoverViewController.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -60,6 +61,7 @@
 		007A3EE61BBD261600EECA2E /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		007A3EE81BBD2AC600EECA2E /* String+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		007A3EEE1BBD803D00EECA2E /* NewfeatureController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewfeatureController.swift; sourceTree = "<group>"; };
+		008348611BC68479001B74D0 /* WelcomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		0091FCED1BB98680005D3F7D /* PopoverAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimationController.swift; sourceTree = "<group>"; };
 		0091FCEE1BB98680005D3F7D /* PopoverPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationController.swift; sourceTree = "<group>"; };
 		0091FCEF1BB98680005D3F7D /* PopoverViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PopoverViewController.storyboard; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				007A3EEE1BBD803D00EECA2E /* NewfeatureController.swift */,
+				008348611BC68479001B74D0 /* WelcomeController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -671,6 +674,7 @@
 				00ECF2A71BB78954002F976E /* MessageTableViewController.swift in Sources */,
 				0091FCF21BB98680005D3F7D /* PopoverAnimationController.swift in Sources */,
 				007A3EEF1BBD803D00EECA2E /* NewfeatureController.swift in Sources */,
+				008348621BC68479001B74D0 /* WelcomeController.swift in Sources */,
 				00ECF2A31BB788D6002F976E /* DiscoverTableViewController.swift in Sources */,
 				007A3EE91BBD2AC600EECA2E /* String+extension.swift in Sources */,
 				00ECF25C1BB77F03002F976E /* AppDelegate.swift in Sources */,
