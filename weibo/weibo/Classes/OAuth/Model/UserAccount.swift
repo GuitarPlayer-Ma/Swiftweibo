@@ -62,12 +62,12 @@ class UserAccount: NSObject, NSCoding {
         })
     }
     
-    // 保存数据
+    /** 保存数据*/
     func saveAccount() {
         JSJLog(UserAccount.path)
         NSKeyedArchiver.archiveRootObject(self, toFile: UserAccount.path)
     }
-    // 读取数据
+    /** 读取数据*/
     class func loadAccount() -> UserAccount? {
         if account == nil {
             account = NSKeyedUnarchiver.unarchiveObjectWithFile(UserAccount.path) as? UserAccount

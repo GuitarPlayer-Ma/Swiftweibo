@@ -7,12 +7,23 @@
 //
 
 import UIKit
+import SDWebImage
+
+private let JSJHomeTableViewCellIdentify = "JSJHomeTableViewCellIdentify"
 
 class HomeTableViewController: BaseTableViewController {
     
     deinit {
         // 移除通知
         NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    // 存储所有微博数据
+    private var statues: [Status]? {
+        didSet {
+            // 刷新微博列表
+            tableView.reloadData()
+        }
     }
     
     override func viewDidLoad() {
@@ -25,7 +36,79 @@ class HomeTableViewController: BaseTableViewController {
         
         // 初始化导航条
         setupNav()
+        
+        // 加载微博数据
+        loadData()
+        
+        tableView.estimatedRowHeight = 300
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
     }
+    
+    private func loadData() {
+        let parameter = ["access_token": UserAccount.loadAccount()!.access_token!];
+        NetworkingTools.shareNetworkTools().GET("2/statuses/home_timeline.json", parameters: parameter, success: { (_, JSON) -> Void in
+            
+            if let dictArray = JSON["statuses"] {
+                // 有值
+                var models = [Status]()
+                for dict in dictArray as! [[String: AnyObject]] {
+                    models.append(Status(dict: dict))
+                }
+                // 设置微博数据
+//                self.statues = models
+                
+                // 缓存所有微博配图(优化)
+                self.cacheImage(models)
+            }
+            
+            }) { (_, error) -> Void in
+                JSJLog(error)
+        }
+    }
+    
+    
+    // MARK: - 缓存所有配图
+    
+    private func cacheImage(models: [Status]) {
+        // 判断模型数组是否为空
+        // 如果count是nil则等于0
+        let count = models.count ?? 0
+        guard count != 0 else { // 确保不为0
+            return
+        }
+        
+        // 创建一个组(用来确保所有图片的缓存完成,再进行其他操作)
+        let group = dispatch_group_create()
+        
+        // 遍历模型数组
+        for status in models {
+            // 判断是否有配图
+            if status.thumbnail_pics == nil || status.thumbnail_pics?.count == 0 {
+                continue
+            }
+            
+            for url in status.thumbnail_pics! {
+                // 将当前下载图片的操作添加到组
+                dispatch_group_enter(group)
+                // 下载图片
+                SDWebImageManager.sharedManager().downloadImageWithURL(url, options: [], progress: nil) { (_, _, _, _, _) -> Void in
+                    JSJLog("图片已下载")
+                    // 离开组
+                    dispatch_group_leave(group)
+                }
+            }
+            
+        }
+        // 监听到所有图片都下载完成(所有元素都退出了组)
+        dispatch_group_notify(group, dispatch_get_main_queue(), { () -> Void in
+            JSJLog("***所有图片下载完成***")
+            self.statues = models
+        })
+    }
+
+    
+    // MARK: - 设置导航栏
     
     private func setupNav() {
         // 初始化标题按钮
@@ -40,7 +123,6 @@ class HomeTableViewController: BaseTableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(imageName: "navigationbar_pop", target: self, actionName: "rightButtonClick")
     }
     
-    // MARK: - 导航栏按钮点击
     func titleButtonClick() {
         JSJLog(__FUNCTION__)
         
@@ -63,7 +145,7 @@ class HomeTableViewController: BaseTableViewController {
     func leftButtonClick() {
         JSJLog(__FUNCTION__)
     }
-
+    
     func rightButtonClick() {
         JSJLog(__FUNCTION__)
         let storyboard = UIStoryboard.init(name: "QRCodeViewController", bundle: nil)
@@ -72,7 +154,26 @@ class HomeTableViewController: BaseTableViewController {
     }
     
     
+    // MARK: - 数据源方法
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return statues?.count ?? 0
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier(JSJHomeTableViewCellIdentify) as? HomeTableViewCell
+        if cell == nil {
+            cell = HomeTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: JSJHomeTableViewCellIdentify)
+        }
+        
+        let status = statues![indexPath.row]
+        cell?.status = status
+        return cell!
+    }
+    
+    
     // MARK: - 懒加载
+    
     private lazy var popoverAnimator: PopoverAnimationController = {
         let animator = PopoverAnimationController()
         
