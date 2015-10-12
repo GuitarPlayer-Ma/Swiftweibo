@@ -62,8 +62,17 @@ class Status: NSObject {
     // 配图的URL数组
     var thumbnail_pics: [NSURL]?
     
+    var pictureURLs: [NSURL]? {
+        
+        return retweeted_status != nil ? retweeted_status?.thumbnail_pics : thumbnail_pics
+    }
+    
     // 用户模型
     var user: User?
+    
+    // 转发微博
+    var retweeted_status: Status?
+    
     
     init(dict: [String: AnyObject]) {
         super.init()
@@ -77,6 +86,13 @@ class Status: NSObject {
             user = User(dict: value as! [String: AnyObject])
             return
         }
+        
+        // 如果是retweet_status,自己处理
+        if key == "retweeted_status" {
+            retweeted_status = Status(dict: value as! [String: AnyObject])
+            return
+        }
+        
         super.setValue(value, forKey: key)
     }
     

@@ -34,15 +34,19 @@ class HomeTableViewController: BaseTableViewController {
             return
         }
         
+        // 注册cell 
+        tableView.registerClass(HomeNormalCell.self, forCellReuseIdentifier: JSJCellReusableIdentifier.normalCell.rawValue)
+        tableView.registerClass(HomeForwardCell.self, forCellReuseIdentifier: JSJCellReusableIdentifier.forwardCell.rawValue)
+        
         // 初始化导航条
         setupNav()
         
         // 加载微博数据
         loadData()
         
-        tableView.estimatedRowHeight = 300
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+//        tableView.estimatedRowHeight = 300
+//        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
     }
     
     private func loadData() {
@@ -84,11 +88,11 @@ class HomeTableViewController: BaseTableViewController {
         // 遍历模型数组
         for status in models {
             // 判断是否有配图
-            if status.thumbnail_pics == nil || status.thumbnail_pics?.count == 0 {
+            if status.pictureURLs == nil || status.pictureURLs?.count == 0 {
                 continue
             }
             
-            for url in status.thumbnail_pics! {
+            for url in status.pictureURLs! {
                 // 将当前下载图片的操作添加到组
                 dispatch_group_enter(group)
                 // 下载图片
@@ -161,16 +165,49 @@ class HomeTableViewController: BaseTableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(JSJHomeTableViewCellIdentify) as? HomeTableViewCell
-        if cell == nil {
-            cell = HomeTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: JSJHomeTableViewCellIdentify)
-        }
         
         let status = statues![indexPath.row]
-        cell?.status = status
-        return cell!
+        
+        let identity = JSJCellReusableIdentifier.reusableIdentifier(status)
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(identity) as! HomeTableViewCell
+        
+        cell.status = status
+        
+        return cell
     }
     
+    
+    // MARK: - 代理方法
+    // 缓存cell高的字典
+    private var rowHeightCache = [Int: CGFloat]()
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        let status = statues![indexPath.row]
+        let identity = JSJCellReusableIdentifier.reusableIdentifier(status)
+        // 取出cell
+//        let cell = tableView.cellForRowAtIndexPath(indexPath) as! HomeTableViewCell
+        // 从缓存池中取
+        let cell = tableView.dequeueReusableCellWithIdentifier(identity) as! HomeTableViewCell
+        
+        // 判断缓存中是否有高度
+        if let height = rowHeightCache[status.id] {
+            return height
+        }
+        
+        let height = cell.rowHeight(status)
+        
+        // 缓存高度
+        rowHeightCache[status.id] = height
+        
+        return height
+    }
+    
+    // 收到内存警告,手动释放
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        rowHeightCache.removeAll()
+    }
     
     // MARK: - 懒加载
     

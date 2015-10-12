@@ -12,6 +12,7 @@
 		000FF03C1BCAC9B700E7A6ED /* HomeStatusFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FF03B1BCAC9B700E7A6ED /* HomeStatusFooterView.swift */; settings = {ASSET_TAGS = (); }; };
 		000FF03E1BCACA5000E7A6ED /* HomeStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FF03D1BCACA5000E7A6ED /* HomeStatusPictureView.swift */; settings = {ASSET_TAGS = (); }; };
 		000FF0401BCAD38900E7A6ED /* HomeStatusTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FF03F1BCAD38900E7A6ED /* HomeStatusTopView.swift */; settings = {ASSET_TAGS = (); }; };
+		000FF0421BCADCB100E7A6ED /* HomeForwardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FF0411BCADCB100E7A6ED /* HomeForwardCell.swift */; settings = {ASSET_TAGS = (); }; };
 		002B2AD61BBB73EC00794939 /* CreateQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002B2AD51BBB73EC00794939 /* CreateQRCodeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		002B2ADC1BBB892A00794939 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002B2ADB1BBB892A00794939 /* OAuthViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		002BD25F1BC7DBB600C858C6 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002BD25E1BC7DBB600C858C6 /* Status.swift */; settings = {ASSET_TAGS = (); }; };
@@ -27,6 +28,7 @@
 		0091FCF71BB987EA005D3F7D /* QRCodeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0091FCF61BB987EA005D3F7D /* QRCodeViewController.storyboard */; settings = {ASSET_TAGS = (); }; };
 		0091FCF91BB98B22005D3F7D /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091FCF81BB98B22005D3F7D /* QRCodeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		009987A91BB82DCC009DE336 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009987A81BB82DCC009DE336 /* UIBarButtonItem+Extension.swift */; settings = {ASSET_TAGS = (); }; };
+		00A3228A1BCBF8C100D418A7 /* HomeNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A322891BCBF8C100D418A7 /* HomeNormalCell.swift */; settings = {ASSET_TAGS = (); }; };
 		00C76E821BB9518A00B33CE4 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C76E811BB9518A00B33CE4 /* TitleButton.swift */; settings = {ASSET_TAGS = (); }; };
 		00D920EA1BC8A8A500A1339C /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D920E91BC8A8A500A1339C /* UILabel+Extension.swift */; settings = {ASSET_TAGS = (); }; };
 		00D920EC1BC8BE5400A1339C /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D920EB1BC8BE5400A1339C /* NSDate+Extension.swift */; settings = {ASSET_TAGS = (); }; };
@@ -70,6 +72,7 @@
 		000FF03B1BCAC9B700E7A6ED /* HomeStatusFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeStatusFooterView.swift; sourceTree = "<group>"; };
 		000FF03D1BCACA5000E7A6ED /* HomeStatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeStatusPictureView.swift; sourceTree = "<group>"; };
 		000FF03F1BCAD38900E7A6ED /* HomeStatusTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeStatusTopView.swift; sourceTree = "<group>"; };
+		000FF0411BCADCB100E7A6ED /* HomeForwardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeForwardCell.swift; sourceTree = "<group>"; };
 		002B2AD51BBB73EC00794939 /* CreateQRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateQRCodeViewController.swift; sourceTree = "<group>"; };
 		002B2ADB1BBB892A00794939 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		002BD25E1BC7DBB600C858C6 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 		0091FCF61BB987EA005D3F7D /* QRCodeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRCodeViewController.storyboard; sourceTree = "<group>"; };
 		0091FCF81BB98B22005D3F7D /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		009987A81BB82DCC009DE336 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		00A322891BCBF8C100D418A7 /* HomeNormalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNormalCell.swift; sourceTree = "<group>"; };
 		00C76E811BB9518A00B33CE4 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		00D920E91BC8A8A500A1339C /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		00D920EB1BC8BE5400A1339C /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				000FF0391BCAC96D00E7A6ED /* HomeTableViewCell.swift */,
+				00A322891BCBF8C100D418A7 /* HomeNormalCell.swift */,
+				000FF0411BCADCB100E7A6ED /* HomeForwardCell.swift */,
 				000FF03F1BCAD38900E7A6ED /* HomeStatusTopView.swift */,
 				000FF03B1BCAC9B700E7A6ED /* HomeStatusFooterView.swift */,
 				000FF03D1BCACA5000E7A6ED /* HomeStatusPictureView.swift */,
@@ -707,6 +713,7 @@
 				000FF0401BCAD38900E7A6ED /* HomeStatusTopView.swift in Sources */,
 				00D920EC1BC8BE5400A1339C /* NSDate+Extension.swift in Sources */,
 				000FF0371BCAC01C00E7A6ED /* UIButton+Extension.swift in Sources */,
+				000FF0421BCADCB100E7A6ED /* HomeForwardCell.swift in Sources */,
 				009987A91BB82DCC009DE336 /* UIBarButtonItem+Extension.swift in Sources */,
 				000FF03E1BCACA5000E7A6ED /* HomeStatusPictureView.swift in Sources */,
 				0091FCF91BB98B22005D3F7D /* QRCodeViewController.swift in Sources */,
@@ -716,6 +723,7 @@
 				008348621BC68479001B74D0 /* WelcomeController.swift in Sources */,
 				002BD25F1BC7DBB600C858C6 /* Status.swift in Sources */,
 				00ECF2A31BB788D6002F976E /* DiscoverTableViewController.swift in Sources */,
+				00A3228A1BCBF8C100D418A7 /* HomeNormalCell.swift in Sources */,
 				007A3EE91BBD2AC600EECA2E /* String+extension.swift in Sources */,
 				002BD2611BC7DCF400C858C6 /* User.swift in Sources */,
 				000FF03C1BCAC9B700E7A6ED /* HomeStatusFooterView.swift in Sources */,
@@ -846,6 +854,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = weibo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -861,6 +870,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = weibo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

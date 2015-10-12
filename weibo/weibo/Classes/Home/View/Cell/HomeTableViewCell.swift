@@ -10,6 +10,20 @@ import UIKit
 import SnapKit
 import SDWebImage
 
+public enum JSJCellReusableIdentifier : String {
+    case normalCell = "normalCell"
+    case forwardCell = "forwardCell"
+    
+    /**
+    根据对应的模型返回对应cell的唯一标识
+    */
+    static func reusableIdentifier(status: Status) -> String
+    {
+        // .rawValue用于获取枚举的原始值
+        return status.retweeted_status != nil ?  JSJCellReusableIdentifier.forwardCell.rawValue : JSJCellReusableIdentifier.normalCell.rawValue
+    }
+}
+
 class HomeTableViewCell: UITableViewCell {
     
     var status: Status? {
@@ -33,7 +47,7 @@ class HomeTableViewCell: UITableViewCell {
         setupChildUI()
     }
 
-    private func setupChildUI() {
+    func setupChildUI() {
         // 添加子控件
         contentView.addSubview(topView)
         contentView.addSubview(contentLabel)
@@ -51,27 +65,36 @@ class HomeTableViewCell: UITableViewCell {
         
         // 布局微博内容
         contentLabel.snp_makeConstraints { (make) -> Void in
-            make.left.equalTo(topView)
+            make.left.equalTo(topView).offset(10)
             make.top.equalTo(topView.snp_bottom).offset(15)
             make.width.equalTo(UIScreen.mainScreen().bounds.width - 20)
         }
         
         // 布局配图
-        pictureView.snp_makeConstraints { (make) -> Void in
-            make.left.equalTo(contentLabel)
-            make.top.equalTo(contentLabel.snp_bottom).offset(10)
-        }
+//        pictureView.snp_makeConstraints { (make) -> Void in
+//            make.left.equalTo(contentLabel)
+//            make.top.equalTo(contentLabel.snp_bottom).offset(10)
+//        }
         
         // 布局底部条
         footBarView.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(pictureView.snp_bottom).offset(10)
-            make.bottom.equalTo(contentView.snp_bottom).offset(-10)
+//            make.bottom.equalTo(contentView.snp_bottom).offset(-10)
             make.height.equalTo(44)
             make.left.equalTo(contentView)
             make.right.equalTo(contentView)
         }
     }
     
+    // 计算cell的高度
+    func rowHeight(status: Status) -> CGFloat  {
+        // 先给微博模型赋值
+        self.status = status
+        // 强制更新
+        layoutIfNeeded()
+        // 返回底部最大视图
+        return CGRectGetMaxY(footBarView.frame)
+    }
     
     // MARK: - 懒加载
 
@@ -79,7 +102,7 @@ class HomeTableViewCell: UITableViewCell {
     private lazy var topView: HomeStatusTopView = HomeStatusTopView()
     
     // 正文
-    private lazy var contentLabel: UILabel = {
+    lazy var contentLabel: UILabel = {
         let label = UILabel()
         label.text = "银河系漫游权威指南"
         label.numberOfLines = 0
@@ -87,7 +110,7 @@ class HomeTableViewCell: UITableViewCell {
     }()
     
     // 配图
-    private lazy var pictureView: HomeStatusPictureView = HomeStatusPictureView()
+    lazy var pictureView: HomeStatusPictureView = HomeStatusPictureView()
     
     // 底部条
     private lazy var footBarView: HomeStatusFooterView = {

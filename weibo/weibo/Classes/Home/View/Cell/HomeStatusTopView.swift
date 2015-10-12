@@ -59,6 +59,7 @@ class HomeStatusTopView: UIView {
             make.left.equalTo(10)
             make.width.equalTo(50)
             make.height.equalTo(50)
+            make.bottom.equalTo(self.snp_bottom).offset(-10)
         }
         // 布局认证
         verifiedView.snp_makeConstraints { (make) -> Void in

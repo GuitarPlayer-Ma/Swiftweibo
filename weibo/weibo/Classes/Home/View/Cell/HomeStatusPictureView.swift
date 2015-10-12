@@ -34,13 +34,13 @@ class HomeStatusPictureView: UICollectionView, UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return status?.thumbnail_pics?.count ?? 0
+        return status?.pictureURLs?.count ?? 0
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(JSJPictureCollectionViewCellID, forIndexPath: indexPath) as! PictureCollectionViewCell
         
-        cell.imageURL = status?.thumbnail_pics?[indexPath.item]
+        cell.imageURL = status?.pictureURLs?[indexPath.item]
         
         return cell
     }
@@ -51,11 +51,11 @@ class HomeStatusPictureView: UICollectionView, UICollectionViewDataSource {
     private func calculateItemSize() -> CGSize {
         
         /* 判断是否有配图*/
-        if status?.thumbnail_pics == nil {
+        if status?.pictureURLs == nil {
             return CGSizeZero
         }
         
-        let count = status?.thumbnail_pics?.count ?? 0
+        let count = status?.pictureURLs?.count ?? 0
         
         // 没有配图
         if count == 0 {
@@ -66,7 +66,7 @@ class HomeStatusPictureView: UICollectionView, UICollectionViewDataSource {
         
         // 有一张配图
         if count == 1 {
-            let key = status!.thumbnail_pics?.first!.absoluteString
+            let key = status!.pictureURLs?.first!.absoluteString
             let image = SDWebImageManager.sharedManager().imageCache.imageFromDiskCacheForKey(key)
             // 设置layout的属性
             layout.itemSize = image.size
