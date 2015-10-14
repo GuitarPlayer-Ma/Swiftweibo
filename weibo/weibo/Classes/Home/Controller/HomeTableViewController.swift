@@ -13,6 +13,9 @@ private let JSJHomeTableViewCellIdentify = "JSJHomeTableViewCellIdentify"
 
 class HomeTableViewController: BaseTableViewController {
     
+    // 标记是下拉还是上拉
+    private var isPullUp: Bool = false
+    
     deinit {
         // 移除通知
         NSNotificationCenter.defaultCenter().removeObserver(self)
@@ -41,17 +44,35 @@ class HomeTableViewController: BaseTableViewController {
         // 初始化导航条
         setupNav()
         
+        // 添加下拉刷新控件
+        tableView.addSubview(refreshTipView)
+//        refreshControl = HomeRefreshController()
+        
         // 加载微博数据
         loadData()
         
-//        tableView.estimatedRowHeight = 300
-//        tableView.rowHeight = UITableViewAutomaticDimension
-//        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
     }
     
     private func loadData() {
-        let parameter = ["access_token": UserAccount.loadAccount()!.access_token!];
+        
+        var since_id = 0
+        var max_id = 0
+        
+        // 判断是上拉刷新还是下拉刷新
+        if isPullUp { // 上拉
+            max_id = statues!.last!.id - 1 ?? 0
+        }
+        else {
+            since_id = statues?.first?.id ?? 0
+        }
+        
+        // 配置请求参数
+        let parameter = ["access_token": UserAccount.loadAccount()!.access_token!, "max_id": max_id, "since_id": since_id];
         NetworkingTools.shareNetworkTools().GET("2/statuses/home_timeline.json", parameters: parameter, success: { (_, JSON) -> Void in
+            
+            // 关闭下拉控件
+            self.refreshTipView.removeRefresh()
             
             if let dictArray = JSON["statuses"] {
                 // 有值
@@ -59,8 +80,21 @@ class HomeTableViewController: BaseTableViewController {
                 for dict in dictArray as! [[String: AnyObject]] {
                     models.append(Status(dict: dict))
                 }
-                // 设置微博数据
-//                self.statues = models
+                
+                // 判断是否是下拉刷新
+                if since_id > 0 {
+                    JSJLog("下拉")
+                    // 拼接在前面
+                    models = models + self.statues!
+                }
+                
+                // 判断是不是上拉
+                if max_id > 0 {
+                    JSJLog("上拉")
+                    // 拼接在后面
+                    self.isPullUp = false
+                    models = self.statues! + models
+                }
                 
                 // 缓存所有微博配图(优化)
                 self.cacheImage(models)
@@ -70,7 +104,6 @@ class HomeTableViewController: BaseTableViewController {
                 JSJLog(error)
         }
     }
-    
     
     // MARK: - 缓存所有配图
     
@@ -174,6 +207,13 @@ class HomeTableViewController: BaseTableViewController {
         
         cell.status = status
         
+        // 判断是不是最后一条微博
+        if indexPath.item == (statues?.count)! - 1 && !isPullUp {
+            JSJLog("最后一条微博")
+            isPullUp = true
+            loadData()
+        }
+        
         return cell
     }
     
@@ -208,6 +248,11 @@ class HomeTableViewController: BaseTableViewController {
         super.didReceiveMemoryWarning()
         rowHeightCache.removeAll()
     }
+//    
+//    override func scrollViewDidScroll(scrollView: UIScrollView) {
+//        JSJLog(scrollView.contentOffset)
+//        
+//    }
     
     // MARK: - 懒加载
     
@@ -225,4 +270,10 @@ class HomeTableViewController: BaseTableViewController {
     }()
     
     private lazy var titleButton: TitleButton = TitleButton()
+    
+    // 刷新控件
+    private lazy var refreshTipView: RefreshControllerTipView = RefreshControllerTipView.refreshTipView { () -> Void in
+        self.loadData()
+    }
+    
 }

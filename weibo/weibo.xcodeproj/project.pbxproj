@@ -29,6 +29,8 @@
 		0091FCF91BB98B22005D3F7D /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0091FCF81BB98B22005D3F7D /* QRCodeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		009987A91BB82DCC009DE336 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009987A81BB82DCC009DE336 /* UIBarButtonItem+Extension.swift */; settings = {ASSET_TAGS = (); }; };
 		00A3228A1BCBF8C100D418A7 /* HomeNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A322891BCBF8C100D418A7 /* HomeNormalCell.swift */; settings = {ASSET_TAGS = (); }; };
+		00A3228E1BCC175900D418A7 /* HomeRefreshController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A3228C1BCC175900D418A7 /* HomeRefreshController.swift */; settings = {ASSET_TAGS = (); }; };
+		00A322911BCC1D8800D418A7 /* RefreshControllerTipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A322901BCC1D8800D418A7 /* RefreshControllerTipView.xib */; settings = {ASSET_TAGS = (); }; };
 		00C76E821BB9518A00B33CE4 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C76E811BB9518A00B33CE4 /* TitleButton.swift */; settings = {ASSET_TAGS = (); }; };
 		00D920EA1BC8A8A500A1339C /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D920E91BC8A8A500A1339C /* UILabel+Extension.swift */; settings = {ASSET_TAGS = (); }; };
 		00D920EC1BC8BE5400A1339C /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D920EB1BC8BE5400A1339C /* NSDate+Extension.swift */; settings = {ASSET_TAGS = (); }; };
@@ -89,6 +91,8 @@
 		0091FCF81BB98B22005D3F7D /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		009987A81BB82DCC009DE336 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		00A322891BCBF8C100D418A7 /* HomeNormalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNormalCell.swift; sourceTree = "<group>"; };
+		00A3228C1BCC175900D418A7 /* HomeRefreshController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRefreshController.swift; sourceTree = "<group>"; };
+		00A322901BCC1D8800D418A7 /* RefreshControllerTipView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefreshControllerTipView.xib; sourceTree = "<group>"; };
 		00C76E811BB9518A00B33CE4 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		00D920E91BC8A8A500A1339C /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		00D920EB1BC8BE5400A1339C /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
@@ -243,6 +247,15 @@
 			path = QRCode;
 			sourceTree = "<group>";
 		};
+		00A3228B1BCC16BA00D418A7 /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				00A3228C1BCC175900D418A7 /* HomeRefreshController.swift */,
+				00A322901BCC1D8800D418A7 /* RefreshControllerTipView.xib */,
+			);
+			path = Refresh;
+			sourceTree = "<group>";
+		};
 		00ECF24F1BB77F03002F976E = {
 			isa = PBXGroup;
 			children = (
@@ -371,6 +384,7 @@
 		00ECF2931BB781F2002F976E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				00A3228B1BCC16BA00D418A7 /* Refresh */,
 				000FF0381BCAC96D00E7A6ED /* Cell */,
 				0091FCEC1BB98680005D3F7D /* PopoverView */,
 				0091FCF11BB98680005D3F7D /* QRCode */,
@@ -624,6 +638,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0091FCF41BB98680005D3F7D /* PopoverViewController.storyboard in Resources */,
+				00A322911BCC1D8800D418A7 /* RefreshControllerTipView.xib in Resources */,
 				00ECF2B21BB79DB9002F976E /* MainVCSettings.json in Resources */,
 				00ECF28A1BB780EF002F976E /* Assets.xcassets in Resources */,
 				0091FCF71BB987EA005D3F7D /* QRCodeViewController.storyboard in Resources */,
@@ -721,6 +736,7 @@
 				0091FCF21BB98680005D3F7D /* PopoverAnimationController.swift in Sources */,
 				007A3EEF1BBD803D00EECA2E /* NewfeatureController.swift in Sources */,
 				008348621BC68479001B74D0 /* WelcomeController.swift in Sources */,
+				00A3228E1BCC175900D418A7 /* HomeRefreshController.swift in Sources */,
 				002BD25F1BC7DBB600C858C6 /* Status.swift in Sources */,
 				00ECF2A31BB788D6002F976E /* DiscoverTableViewController.swift in Sources */,
 				00A3228A1BCBF8C100D418A7 /* HomeNormalCell.swift in Sources */,
